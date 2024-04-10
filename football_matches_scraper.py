@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-def setup_driver():
+def extract_matches():
     page_url = 'https://www.adamchoi.co.uk/teamgoals/detailed'
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
