@@ -1,4 +1,4 @@
-from scraper import setup_driver
+from football_matches_scraper import extract_matches
 
 if __name__ == '__main__':
-    setup_driver()
+    extract_matches()
