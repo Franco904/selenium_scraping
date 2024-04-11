@@ -13,12 +13,12 @@ def extract_matches():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     driver.get(page_url)
 
-    all_matches_button = driver.find_element(By.XPATH, value='//label[@analytics-event="All matches"]')
+    all_matches_button = driver.find_element(By.XPATH, '//label[@analytics-event="All matches"]')
     all_matches_button.click()
 
     time.sleep(0.5)
-    football_matches_table = driver.find_element(By.TAG_NAME, value='table')
-    football_matches = football_matches_table.find_elements(By.TAG_NAME, value='tr')
+    football_matches_table = driver.find_element(By.TAG_NAME, 'table')
+    football_matches = football_matches_table.find_elements(By.TAG_NAME, 'tr')
 
     dates = []
     home_teams = []
@@ -26,10 +26,10 @@ def extract_matches():
     away_teams = []
 
     for football_match in football_matches:
-        dates.append(football_match.find_element(By.XPATH, value='./td[1]').text)
-        home_teams.append(football_match.find_element(By.XPATH, value='./td[2]').text)
-        scores.append(football_match.find_element(By.XPATH, value='./td[3]').text)
-        away_teams.append(football_match.find_element(By.XPATH, value='./td[4]').text)
+        dates.append(football_match.find_element(By.XPATH, './td[1]').text)
+        home_teams.append(football_match.find_element(By.XPATH, './td[2]').text)
+        scores.append(football_match.find_element(By.XPATH, './td[3]').text)
+        away_teams.append(football_match.find_element(By.XPATH, './td[4]').text)
 
     df = pd.DataFrame({
         'date': dates,
